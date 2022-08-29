@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import './screens/home_screen.dart';
 
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -9,7 +8,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: HomeScreen(),
-      
+      theme: ThemeData(
+        fontFamily: 'Ridley_Grotesk',
+        primaryColor: const Color.fromRGBO(103, 226, 210, 1),
+        
+
+
+      ),
     );
   }
 }

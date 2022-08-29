@@ -1,4 +1,5 @@
 import 'package:billing_app/screens/signup_screen.dart';
+import 'package:billing_app/widgets/auth_buttons.dart';
 import 'package:flutter/material.dart';
 
 import './login_screen.dart';
@@ -15,16 +16,15 @@ class HomeScreen extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: 80),
-          const Center(
+           Center(
               child: Text(
             'DiBi',
             style: TextStyle(
-              fontFamily: 'Ridley_Grotesk',
-                fontSize: 64,
+                fontSize: 60,
                 fontWeight: FontWeight.w400,
-                color:  Color.fromRGBO(103, 226, 210, 1)),
+                color: Theme.of(context).primaryColor),
           )),
-          const SizedBox(height: 50),
+          const SizedBox(height: 30),
           SizedBox(
             height: 370,
             width: 370,
@@ -36,18 +36,14 @@ class HomeScreen extends StatelessWidget {
               const Text(
                 'Hey there!',
                 style: TextStyle(
-                  fontFamily: 'Ridley_Grotesk',
                     color: Colors.white,
                     fontSize: 18,
                     fontWeight: FontWeight.w300),
               ),
-              const SizedBox(
-                height: 1,
-              ),
+              
               const Text(
                 'Welcome to Di-Bi.',
                 style: TextStyle(
-                  fontFamily: 'Ridley_Grotesk',
                     color: Colors.white,
                     fontSize: 25,
                     fontWeight: FontWeight.w400),
@@ -55,61 +51,37 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 24,
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      PageTransition(
-                        type: PageTransitionType.fade,
-                        duration: const Duration(milliseconds: 300 ),
-                        child: SignupScreen(),
-                      ));
-                },
-                child: Container(
-                  width: 320,
-                  height: 50,
-                  decoration: const BoxDecoration(
-                    color: Color.fromRGBO(103, 226, 210, 1),
-                    borderRadius: BorderRadius.all(Radius.circular(25)),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      'SIGN UP',
-                      style: TextStyle(fontSize: 18, color: Colors.white,fontFamily: 'Ridley_Grotesk'),
-                    ),
-                  ),
-                ),
-              ),
+              AuthButtons(
+                  name: 'SIGN UP',
+                  backColor: Theme.of(context).primaryColor,
+                  onTapF: () {
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.fade,
+                          duration: const Duration(milliseconds: 300),
+                          child: SignupScreen(),
+                        ));
+                  },
+                  textColor: Colors.white),
               const SizedBox(
                 height: 12,
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      PageTransition(
-                        type: PageTransitionType.fade,
-                        duration: const Duration(milliseconds: 300 ),
-                        child: LoginScreen(),
-                      ));
-                },
-                child: Container(
-                  width: 320,
-                  height: 50,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(25)),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      'SIGN IN',
-                      style: TextStyle(
-                        fontFamily: 'Ridley_Grotesk',
-                          fontSize: 18,
-                          color: Color.fromRGBO(103, 226, 210, 1)),
-                    ),
-                  ),
-                ),
+              AuthButtons(
+                  name: 'SIGN IN',
+                  backColor: Colors.white,
+                  onTapF: () {
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.fade,
+                          duration: const Duration(milliseconds: 300),
+                          child: LoginScreen(),
+                        ));
+                  },
+                  textColor: Theme.of(context).primaryColor),
+              const SizedBox(
+                height: 100,
               )
             ],
           )
